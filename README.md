@@ -1,4 +1,4 @@
-# nodejsbackend2-a2-s3-2017
+# NodeJS Backend version 2 for assignment 2 semester 3 2017
 
 This is a CRUD of RestAPI using NodeJS and MongoDB as a backend.
 
