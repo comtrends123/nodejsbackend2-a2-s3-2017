@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 8090;
 var router = express.Router();
 
-mongoose.connect('mongodb://imhikarucat:12345abcde@ds157444.mlab.com:57444/a2-webpro-s3-2017');
+mongoose.connect('mongodb://DB_Username:DB_Password@DB_URL');
 
 // Middle Route 
 
