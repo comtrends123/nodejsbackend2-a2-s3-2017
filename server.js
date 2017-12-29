@@ -9,8 +9,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var port = process.env.PORT || 8090;
 var router = express.Router();
-var http = require('http');
-var app = http.createServer(function(req,res){
+var https = require('https');
+var app = https.createServer(function(req,res){
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify({ a: 1 }));
 });
