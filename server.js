@@ -9,11 +9,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var port = process.env.PORT || 8090;
 var router = express.Router();
-var https = require('https');
-var app = https.createServer(function(req,res){
-    res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({ a: 1 }));
+
+app.post('/', function(request, response){
+  console.log(request.body);      // your JSON
+  response.send(request.body);    // echo the result back
 });
+
 
 mongoose.connect('mongodb://imhikarucat:12345abcde@ds157444.mlab.com:57444/a2-webpro-s3-2017');
 
@@ -25,6 +26,9 @@ router.use(function (req, res, next) {
     console.log('Logging of request will be done here');
     next(); // make sure we go to the next routes and don't stop here
 });
+
+//SERVER SIDE ROUTING
+app.use('/', router);
 
 //PRODUCTS CRUD
 //Create
