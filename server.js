@@ -11,8 +11,8 @@ var port = process.env.PORT || 8090;
 var router = express.Router();
 
 app.post('/', function(request, response){
-  console.log(request.body);      // your JSON
-  response.send(request.body);    // echo the result back
+  console.log(request.body.json);      // your JSON
+  response.send(request.body.json);    // echo the result back
 });
 
 
