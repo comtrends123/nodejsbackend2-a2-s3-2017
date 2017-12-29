@@ -188,7 +188,7 @@ router.route('/categories/:category_id').delete(function (req, res) {
 //Create
 router.route('/shoppingcarts').post(function (req, res) {
     console.log("in add");
-    var p = new shoppingcarts();
+    var p = new shoppingcart();
     p.id = req.body.id;
     p.name = req.body.name;
     p.price = req.body.price;
@@ -209,11 +209,11 @@ router.route('/shoppingcarts').post(function (req, res) {
 
 //Read - Get all
 router.route('/shoppingcarts').get(function (req, res) {
-    product.find(function (err, shoppingcarts) {
+    product.find(function (err, shoppingcart) {
         if (err) {
             res.send(err);
         }
-        res.send(shoppingcarts);
+        res.send(shoppingcart);
     });
 });
 
@@ -221,7 +221,7 @@ router.route('/shoppingcarts').get(function (req, res) {
 router.route('/shoppingcarts/:shoppingcart_id').get(function (req, res) {
 
 
-    product.findById(req.params.shoppingcarts_id, function (err, prod) {
+    product.findById(req.params.shoppingcart_id, function (err, prod) {
         if (err)
             res.send(err);
         res.json(prod);
@@ -229,7 +229,7 @@ router.route('/shoppingcarts/:shoppingcart_id').get(function (req, res) {
 });
 
 //Update
-router.route('/shoppingcarts/:shoppincart_id').put(function (req, res) {
+router.route('/shoppingcarts/:shoppingcart_id').put(function (req, res) {
 
     product.findById(req.params.shoppingcart_id, function (err, prod) {
         if (err) {
@@ -246,8 +246,9 @@ router.route('/shoppingcarts/:shoppincart_id').put(function (req, res) {
         prod.save(function (err) {
             if (err)
                 res.send(err);
-
-            res.json({ message: 'Shoppingcart updated!' });
+            else{
+                res.json(docs);
+            }
         });
 
     });
