@@ -92,8 +92,9 @@ router.route('/products/:product_id').put(function (req, res) {
         prod.save(function (err) {
             if (err)
                 res.send(err);
-
-            res.json({ message: 'Product updated!' });
+            else{
+                res.json(docs);
+            }
         });
 
     });
@@ -190,6 +191,12 @@ router.route('/shoppingcarts').post(function (req, res) {
     var p = new shoppingcarts();
     p.id = req.body.id;
     p.name = req.body.name;
+    p.price = req.body.price;
+    p.description = req.body.description;
+    p.brand = req.body.brand;
+    p.producer = req.body.producer;
+    p.inventory = req.body.inventory;
+    p.imageurl = req.body.imageurl;
     
     p.save(function (err) {
         if (err) {
@@ -230,6 +237,12 @@ router.route('/shoppingcarts/:shoppincart_id').put(function (req, res) {
         }
         prod.id = req.body.id;
         prod.name = req.body.name;
+        prod.price = req.body.price;
+        prod.description = req.body.description;
+        prod.brand = req.body.brand;
+        prod.producer = req.body.producer;
+        prod.inventory = req.body.inventory;
+        prod.imageurl = req.body.imageurl;
         prod.save(function (err) {
             if (err)
                 res.send(err);
