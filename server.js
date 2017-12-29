@@ -4,9 +4,9 @@ var cors = require('cors');
 var app = express();
 var mongoose = require('mongoose');
 var product = require('./product');
-var shoppingcart = require('.shoppingcart');
-var category = require('.category');
-var order = require('order');
+var shoppingcart = require('./shoppingcart');
+var category = require('./category');
+var order = require('./order');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
