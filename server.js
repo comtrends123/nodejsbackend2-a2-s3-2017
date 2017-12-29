@@ -9,8 +9,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var port = process.env.PORT || 8090;
 var router = express.Router();
+var http = require('http');
+var app = http.createServer(function(req,res){
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({ a: 1 }));
+});
 
-mongoose.connect('mongodb://DB_Username:DB_Password@DB_URL');
+mongoose.connect('mongodb://imhikarucat:12345abcde@ds157444.mlab.com:57444/a2-webpro-s3-2017');
 
 // Middle Route 
 
